@@ -1,18 +1,9 @@
-#include <iostream>
-
-// Game Loop.
-void ProcessInput() {}
-void Tick(float deltaTime) {}
-// Draw/Render
-void Draw() {}
+﻿#include <iostream>
+#include <Engine/Engine.h>
 
 int main()
 {
-	// Game Loop.
-	while (true)
-	{
-		ProcessInput();
-		Tick(1.0f / 120.0f);
-		Draw();
-	}
+	// 엔진 객체 생성 및 실행.
+	Craft::Engine engine;
+	engine.Run();
 }
