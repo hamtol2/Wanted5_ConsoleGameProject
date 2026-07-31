@@ -1,14 +1,24 @@
 ﻿#include "Engine.h"
 #include <iostream>
-//#include <chrono>
 #include <Windows.h>
+#include <cassert>
 
 namespace Craft
 {
+	// 전역 변수 초기화.
+	Engine* Engine::instance = nullptr;
+
 	Engine::Engine()
-	{}
+	{
+		// instance 초기화.
+		assert(!instance && "instance is not null");
+		instance = this;
+	}
+
 	Engine::~Engine()
-	{}
+	{
+		instance = nullptr;
+	}
 
 	void Engine::Run()
 	{
@@ -90,6 +100,15 @@ namespace Craft
 		isQuit = true;
 	}
 
+	Engine& Engine::Get()
+	{
+		// 검증 - 어서트(어써트/assert).
+		// 무조건(필수로) 통화해야하는 조건이 있을 때 사용.
+		// 디버그 모드에서만 동작.
+		assert(instance && "instance is null");
+		return *instance;
+	}
+
 	void Engine::ProcessInput()
 	{}
 	void Engine::OnInitialized()
@@ -103,7 +122,7 @@ namespace Craft
 		std::cout
 			<< "Engine::Tick() - deltaTime: "
 			<< deltaTime
-			<< " | FPS: " 
+			<< " | FPS: "
 			<< (1.0f / deltaTime)
 			<< "\n";
 	}
