@@ -12,7 +12,7 @@ namespace Craft
 	// 메인 엔진 클래스.
 	// 엔진 루프를 제공.
 	// 게임 엔진의 핵심 기능 제공.
-	class Engine
+	class __declspec(dllexport) Engine
 	{
 		// 엔진 설정 (데이터).
 		struct Setting

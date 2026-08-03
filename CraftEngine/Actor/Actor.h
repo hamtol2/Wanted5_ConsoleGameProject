@@ -8,7 +8,7 @@ namespace Craft
 	class Level;
 
 	// 가상 공간에 배치될 모든 액터의 기본 클래스.
-	class Actor
+	class __declspec(dllexport) Actor
 	{
 	public:
 		Actor();
