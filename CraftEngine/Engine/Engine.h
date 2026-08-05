@@ -20,7 +20,13 @@ namespace Craft
 		struct Setting
 		{
 			// 목표 프레임 수 (초당 프레임).
-			float framerate = 120.0f;
+			float framerate = 0.0f;
+
+			// 사용할 콘솔 화면 너비.
+			int width = 0;
+
+			// 사용할 콘솔 화면 높이.
+			int height = 0;
 		};
 
 	public:
@@ -48,6 +54,10 @@ namespace Craft
 		// 전역 접근 함수.
 		static Engine& Get();
 
+		// Getter.
+		inline int GetWidth() const { return setting.width; }
+		inline int GetHeight() const { return setting.height; }
+
 	protected:
 		// 입력 처리 함수 (입력 폴링).
 		void ProcessInput();
@@ -71,6 +81,9 @@ namespace Craft
 
 		// 엔진 종료 시 정리가 필요할 때 사용할 함수.
 		void Shutdown();
+
+		// 엔진 설정 로드 함수.
+		void LoadEngineSetting();
 
 	protected:
 		// 엔진 종료 요청 여부 플래그.
