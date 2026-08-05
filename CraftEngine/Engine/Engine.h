@@ -3,7 +3,7 @@
 #include <Core/Core.h>
 #include <memory>	// 스마트 포인터 사용을 위해.
 
-// CraftEngine 프로젝트 안의  클래스는 Craft 네임 스페이스 사용.
+// CraftEngine 프로젝트 안의 클래스는 Craft 네임 스페이스 사용.
 namespace Craft
 {
 	// 전방 선언.
