@@ -8,9 +8,28 @@
 
 namespace Craft
 {
+	// 전방 선언.
+	class ScreenBuffer;
+
 	// 그리기 기능을 전담하는 전문 객체.
 	class CRAFT_API Renderer
 	{
+		// 프레임(이미지) 데이터 구조체.
+		struct Frame
+		{
+			Frame(int bufferCount);
+			~Frame();
+
+			// 프레임 초기화 함수.
+			void Clear(const Vector2& screenSize);
+
+			// 화면에 그릴 2차원 배열 문자값.
+			std::unique_ptr<CHAR_INFO[]> charInfoArray;
+
+			// 그리기 정렬 값 이차원 배열.
+			std::unique_ptr<int[]> sortingOrderArray;
+		};
+
 		// 화면에 그릴 데이터를 명령 단위로 저장하기 위한 구조체.
 		struct RenderCommand
 		{
