@@ -48,7 +48,8 @@ void GameLevel::LoadMap(const std::string& filename)
 	// 어서트.
 	assert(readSize > 0 && "No data is in the stage file.");
 
-	// Todo: 읽은 데이터를 기반으로 로직 제작.
+	// 읽은 데이터를 기반으로 로직 제작.
+	// 1. 화면에 액터를 그리기.
 
 	// 모두 사용한 버퍼 해제.
 	delete[] buffer;
