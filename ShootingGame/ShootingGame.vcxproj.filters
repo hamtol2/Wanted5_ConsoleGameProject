@@ -24,12 +24,18 @@
     <ClCompile Include="Level\GameLevel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Actor\PlayerBullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Level\GameLevel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor\PlayerBullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

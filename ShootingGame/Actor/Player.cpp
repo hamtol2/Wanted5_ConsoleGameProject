@@ -1,6 +1,8 @@
 ﻿#include "Player.h"
 #include <Engine/Engine.h>
 #include <Input/Input.h>
+#include <Level/Level.h>
+#include <Actor/PlayerBullet.h>
 
 using namespace Craft;
 Player::Player()
@@ -39,6 +41,12 @@ void Player::Tick(float deltaTime)
 
 	// 이동 함수 호출.
 	Move(direction, deltaTime);
+
+	// 탄약 발사 처리.
+	if (Input::Get().GetKeyDown(VK_SPACE))
+	{
+		Fire();
+	}
 }
 
 void Player::Move(float direction, float deltaTime)
@@ -66,4 +74,22 @@ void Player::Move(float direction, float deltaTime)
 	// float 값을 int로 형변환할 때 소숫점 값은 버림 처리된다는 점 주의.
 	newPosition.x = static_cast<int>(xPosition);
 	SetPosition(newPosition);
+}
+
+void Player::Fire()
+{
+	// 탄약 생성 위치 구하기.
+	// 플레이어의 가운데 위치.
+	// <=A=>
+	Vector2 bulletPosition(
+		GetPosition().x + (width / 2), 
+		GetPosition().y
+	);
+
+	// 탄약 생성.
+	std::shared_ptr<Level> owner = GetOwner();
+	if (owner)
+	{
+		owner->SpawnActor<PlayerBullet>(bulletPosition);
+	}
 }

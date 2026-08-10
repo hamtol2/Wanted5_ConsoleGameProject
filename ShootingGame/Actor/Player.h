@@ -18,6 +18,9 @@ private:
 	// 이동 처리 함수.
 	void Move(float direction, float deltaTime);
 
+	// 탄약 발사 함수.
+	void Fire();
+
 private:
 	// 이동 처리에 필요한 변수.
 	float xPosition = 0.0f;
